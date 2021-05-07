@@ -1,8 +1,588 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<VBox fx:id="vboxBase" minHeight="-Infinity" minWidth="-Infinity" prefHeight="860.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.chessController">
+  <children>
+      <SplitPane fx:id="boardSideSplitPane" dividerPositions="0.5" minHeight="-Infinity" minWidth="-Infinity" prefHeight="860.0" prefWidth="1060.0">
+        <items>
+          <AnchorPane fx:id="boardAnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="860.0" prefWidth="1060.0">
+               <children>
+                  <VBox fx:id="vbox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="860.0" prefWidth="1060.0">
+                     <children>
+                        <GridPane fx:id="boardPane" alignment="CENTER" gridLinesVisible="true" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#paneClicked" onMouseEntered="#paneClicked" prefHeight="860.0" prefWidth="1060.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Pane fx:id="pane0_0" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Rectangle fx:id="rect0_0" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="108.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="rook0_0" fitHeight="107.0" fitWidth="125.0" layoutX="13.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/032-rook.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane1_0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                 <children>
+                                    <Rectangle fx:id="rect1_0" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="knight1_0" fitHeight="104.0" fitWidth="106.0" layoutX="15.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/018-knight.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane2_0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+                                 <children>
+                                    <Rectangle fx:id="rect2_0" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="bishop2_0" fitHeight="126.0" fitWidth="105.0" layoutX="14.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/002-bishop.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane3_0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
+                                 <children>
+                                    <Rectangle fx:id="rect3_0" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="queen3_0" fitHeight="112.0" fitWidth="107.0" layoutX="13.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/027-queen.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane4_0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4">
+                                 <children>
+                                    <Rectangle fx:id="rect4_0" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="king4_0" fitHeight="111.0" fitWidth="108.0" layoutX="12.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/013-king.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane5_0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5">
+                                 <children>
+                                    <Rectangle fx:id="rect5_0" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="bishop5_0" fitHeight="126.0" fitWidth="105.0" layoutX="14.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/002-bishop.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane6_0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6">
+                                 <children>
+                                    <Rectangle fx:id="rect6_0" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="knight6_0" fitHeight="104.0" fitWidth="106.0" layoutX="14.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/018-knight.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane7_0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7">
+                                 <children>
+                                    <Rectangle fx:id="rect7_0" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="rook7_0" fitHeight="107.0" fitWidth="125.0" layoutX="13.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/032-rook.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_1" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                                 <children>
+                                    <Rectangle fx:id="rect0_1" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="pawn0_1" fitHeight="107.0" fitWidth="125.0" layoutX="13.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/021-pawn.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane1_1" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <children>
+                                    <Rectangle fx:id="rect1_1" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="pawn1_1" fitHeight="107.0" fitWidth="125.0" layoutX="13.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/021-pawn.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane2_1" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <children>
+                                    <Rectangle fx:id="rect2_1" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="pawn2_1" fitHeight="107.0" fitWidth="125.0" layoutX="13.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/021-pawn.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane3_1" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                 <children>
+                                    <Rectangle fx:id="rect3_1" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="pawn3_1" fitHeight="107.0" fitWidth="125.0" layoutX="13.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/021-pawn.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane4_1" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                 <children>
+                                    <Rectangle fx:id="rect4_1" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="109.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="pawn4_1" fitHeight="107.0" fitWidth="125.0" layoutX="13.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/021-pawn.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane5_1" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                                 <children>
+                                    <Rectangle fx:id="rect5_1" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="pawn5_1" fitHeight="107.0" fitWidth="125.0" layoutX="13.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/021-pawn.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane6_1" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                                 <children>
+                                    <Rectangle fx:id="rect6_1" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="pawn6_1" fitHeight="107.0" fitWidth="125.0" layoutX="13.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/021-pawn.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane7_1" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="1">
+                                 <children>
+                                    <Rectangle fx:id="rect7_1" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="pawn7_1" fitHeight="107.0" fitWidth="125.0" layoutX="13.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/021-pawn.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_6" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="6">
+                                 <children>
+                                    <Rectangle fx:id="rect0_6" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="pawn0_6" fitHeight="107.0" fitWidth="125.0" layoutX="13.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/chess-pawn.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_05111" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                                 <children>
+                                    <Rectangle fx:id="rect0_05111" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="pawnW2_12111211" fitHeight="107.0" fitWidth="125.0" layoutX="13.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/chess-pawn.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_05112" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="6">
+                                 <children>
+                                    <Rectangle fx:id="rect0_05112" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="pawnW2_12111212" fitHeight="107.0" fitWidth="125.0" layoutX="13.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/chess-pawn.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_05113" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="6">
+                                 <children>
+                                    <Rectangle fx:id="rect0_05113" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="pawnW2_12111213" fitHeight="107.0" fitWidth="125.0" layoutX="13.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/chess-pawn.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_11" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                 <children>
+                                    <Rectangle fx:id="rect2_123" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="pawnW2_12111214" fitHeight="107.0" fitWidth="125.0" layoutX="12.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/chess-pawn.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_12" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                                 <children>
+                                    <Rectangle fx:id="rect2_124" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="pawnW2_12111215" fitHeight="107.0" fitWidth="125.0" layoutX="13.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/chess-pawn.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_13" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="6">
+                                 <children>
+                                    <Rectangle fx:id="rect2_125" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="pawnW2_125" fitHeight="107.0" fitWidth="125.0" layoutX="13.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/chess-pawn.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_14" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="6">
+                                 <children>
+                                    <Rectangle fx:id="rect2_126" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="pawnW2_126" fitHeight="107.0" fitWidth="125.0" layoutX="13.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/chess-pawn.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_01" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="7">
+                                 <children>
+                                    <Rectangle fx:id="rect0_01" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="pawnW2_1222" fitHeight="107.0" fitWidth="125.0" layoutX="13.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/031-rook.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane7_01" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="7">
+                                 <children>
+                                    <Rectangle fx:id="rect2_122121" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="pawnW2_12211" fitHeight="107.0" fitWidth="125.0" layoutX="13.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/031-rook.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane6_01" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                 <children>
+                                    <Rectangle fx:id="rect6_01" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fitHeight="104.0" fitWidth="106.0" layoutX="14.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/017-knight.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane1_01" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="7">
+                                 <children>
+                                    <Rectangle fx:id="rect2_1222" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fitHeight="104.0" fitWidth="106.0" layoutX="15.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/017-knight.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_111" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                                 <children>
+                                    <Rectangle fx:id="rect2_1231" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="pawnW2_121112141" fitHeight="107.0" fitWidth="125.0" layoutX="12.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/001-bishop.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_112" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="7">
+                                 <children>
+                                    <Rectangle fx:id="rect2_1232" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="pawnW2_121112142" fitHeight="107.0" fitWidth="125.0" layoutX="12.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/026-queen.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_051121" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="7">
+                                 <children>
+                                    <Rectangle fx:id="rect0_051121" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="pawnW2_121112121" fitHeight="107.0" fitWidth="125.0" layoutX="13.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/012-king.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_051122" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="7">
+                                 <children>
+                                    <Rectangle fx:id="rect0_051122" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                    <ImageView fx:id="pawnW2_121112122" fitHeight="107.0" fitWidth="125.0" layoutX="13.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/application/resources/chessIcons/001-bishop.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_051123" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                 <children>
+                                    <Rectangle fx:id="rect0_051123" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_113" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <children>
+                                    <Rectangle fx:id="rect2_1233" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_1131" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
+                                 <children>
+                                    <Rectangle fx:id="rect2_12331" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_1137" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <children>
+                                    <Rectangle fx:id="rect2_12337" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_11310" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                 <children>
+                                    <Rectangle fx:id="rect2_123310" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_1133" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                 <children>
+                                    <Rectangle fx:id="rect2_12333" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_1134" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                                 <children>
+                                    <Rectangle fx:id="rect2_12334" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_1135" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                 <children>
+                                    <Rectangle fx:id="rect2_12335" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_1136" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                                 <children>
+                                    <Rectangle fx:id="rect2_12336" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_1138" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                                 <children>
+                                    <Rectangle fx:id="rect2_12338" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_1139" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                                 <children>
+                                    <Rectangle fx:id="rect2_12339" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_11311" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="3">
+                                 <children>
+                                    <Rectangle fx:id="rect2_123311" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_11312" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="2">
+                                 <children>
+                                    <Rectangle fx:id="rect2_123312" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_11313" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="4">
+                                 <children>
+                                    <Rectangle fx:id="rect2_123313" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_11314" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="5">
+                                 <children>
+                                    <Rectangle fx:id="rect2_123314" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_0511231" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                                 <children>
+                                    <Rectangle fx:id="rect0_0511231" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_0511232" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4">
+                                 <children>
+                                    <Rectangle fx:id="rect0_0511232" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_0511233" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <children>
+                                    <Rectangle fx:id="rect0_0511233" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_0511234" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <children>
+                                    <Rectangle fx:id="rect0_0511234" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_0511235" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                 <children>
+                                    <Rectangle fx:id="rect0_0511235" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_0511236" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                                 <children>
+                                    <Rectangle fx:id="rect0_0511236" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_0511237" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                 <children>
+                                    <Rectangle fx:id="rect0_0511237" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_0511238" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                                 <children>
+                                    <Rectangle fx:id="rect0_0511238" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_0511239" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                                 <children>
+                                    <Rectangle fx:id="rect0_0511239" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_05112310" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                                 <children>
+                                    <Rectangle fx:id="rect0_05112310" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_05112311" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="2">
+                                 <children>
+                                    <Rectangle fx:id="rect0_05112311" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_05112312" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="3">
+                                 <children>
+                                    <Rectangle fx:id="rect0_05112312" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_05112313" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="4">
+                                 <children>
+                                    <Rectangle fx:id="rect0_05112313" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="107.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_05112314" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                                 <children>
+                                    <Rectangle fx:id="rect0_05112314" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_05112315" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="5">
+                                 <children>
+                                    <Rectangle fx:id="rect0_05112315" arcHeight="5.0" arcWidth="5.0" fill="#902929" height="109.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_11371" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="5">
+                                 <children>
+                                    <Rectangle fx:id="rect2_123371" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane0_113711" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                 <children>
+                                    <Rectangle fx:id="rect2_1233711" arcHeight="5.0" arcWidth="5.0" fill="#9391e4" height="108.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </VBox>
+                  <Label fx:id="gameOverLabel" alignment="CENTER" focusTraversable="false" prefHeight="860.0" prefWidth="1060.0" text="Game Over!" textFill="#220404" visible="false">
+                     <font>
+                        <Font name="Arial Bold" size="96.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+          <AnchorPane fx:id="sideAnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="865.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="statusLabel" layoutX="14.0" layoutY="317.0" prefHeight="17.0" prefWidth="37.0" text="Status:" />
+                  <Button fx:id="restartGameButton" layoutX="72.0" layoutY="159.0" mnemonicParsing="false" onAction="#restartButtonPressed" prefHeight="25.0" prefWidth="89.0" text="Start Game" />
+                  <TableView fx:id="statusColumn" layoutX="16.0" layoutY="479.0" prefHeight="372.0" prefWidth="200.0">
+                    <columns>
+                      <TableColumn fx:id="playerColumn" prefWidth="62.0" text="Player" />
+                      <TableColumn fx:id="messageColumn" minWidth="0.0" prefWidth="136.0" text="Message" />
+                    </columns>
+                  </TableView>
+                  <Label fx:id="statusLabelText" layoutX="58.0" layoutY="317.0" prefHeight="17.0" prefWidth="159.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+  </children>
 </VBox>
-
