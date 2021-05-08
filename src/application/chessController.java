@@ -603,28 +603,20 @@ public class chessController {
     	
 ///////////////////////////////////////////////////////////////////
 /// handle ///
-/// Input : a mouseEvent///
+/// Input : an mouse event  ///
 /// Output: None///
-/// Does stuff upon mouseclick. When a pane (square on chessboard) is clicked.
+/// 
+/// When a pane (square on chessboard) is clicked.
 /// the rectangle will turn green and the pane becomes selected.
 /// Upon clicking on a square after, the image (chesspiece) moves to that square.
+/// 
 /// ///
-///////////////////////////////////////////////////////////////////    
+///////////////////////////////////////////////////////////////////
     	
   	   @Override 
   	   public void handle(MouseEvent e) { 
   		   
-///////////////////////////////////////////////////////////////////
-/// handle ///
-/// Input : an mouse event  ///
-/// Output: None///
-/// When a mouse button is clicked this method handles it
-/// When a pane (square on chessboard) is clicked.
-  		/// the rectangle will turn green and the pane becomes selected.
-  		/// Upon clicking on a square after, the image (chesspiece) moves to that square.
-/// 
-/// ///
-///////////////////////////////////////////////////////////////////
+
   		   //if a piece is not yet selected, upon mouseclick we want to select it and turn it green
   		   if(!board.isPieceIsSelected()) {
   			   
