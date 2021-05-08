@@ -1,19 +1,29 @@
 package application;
 
+
+//
+//Class: Move
+//
+//Description:
+//This class stores how the players moves
+
 public class Move {
 	
-	
+	//the player that is moving
 	private Player player;
+	//beginning and end area
 	private Square begin;
 	private Square end;
+	//which piece is being moved and maybe killed
 	private Figure figureMoved;
 	private Figure figureKilled;
+	//status of the game
 	private String gameStatus;
 	
 	
 
 
-
+//constructor
 	public Move(Player player, Square begin, Square end) {
 		
 		super();

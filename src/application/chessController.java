@@ -18,32 +18,41 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+
+//
+//Class: chessController
+//
+//Description:
+//This class is the controller for the GUI of the BMI calculator. The objects corresponding to FXML
+//file are created here.
+//
 public class chessController {
 	
 	
 	
-
+	//Base Vbox
     @FXML
     private VBox vboxBase;
-
+    
+    //Split pane for chess portion and status portion
     @FXML
     private SplitPane boardSideSplitPane;
-
+    //It automatically adds this anchor pane
     @FXML
     private AnchorPane boardAnchorPane;
-
+    //another vBox
     @FXML
     private VBox vbox;
-
+    //gridpane for the chessboard
     @FXML
     private GridPane boardPane;
-
+    //a pane that allows me to easily manipulate images and shapes inside it
     @FXML
     private Pane pane0_0;
-
+    //a square on the chess board that I can fill with color
     @FXML
     private Rectangle rect0_0;
-
+    //The chess piece
     @FXML
     private ImageView rook0_0;
 
@@ -511,31 +520,43 @@ public class chessController {
 
     @FXML
     private Rectangle rect2_1233711;
-
+    //label for gameover message which is kept invisible until the game ends
     @FXML
     private Label gameOverLabel;
-
+    //anchorpane for menu pane
     @FXML
     private AnchorPane sideAnchorPane;
-
+    //label for "status:"
     @FXML
     private Label statusLabel;
-
+    //button to restart the game
     @FXML
     private Button restartGameButton;
-
+    //table for game updates
     @FXML
     private TableView<?> statusColumn;
-
+    //leftmost column for player
     @FXML
     private TableColumn<?, ?> playerColumn;
-
+    //rightmost column for updates
     @FXML
     private TableColumn<?, ?> messageColumn;
-
+    //text in status area will be displayed here
     @FXML
     private Label statusLabelText;
     
+    
+    
+    
+///////////////////////////////////////////////////////////////////
+/// restartButtonPressed ///
+/// Input : an event (usually button is pressed) ///
+/// Output: None///
+/// On the click of the button in the GUI, the following code runs
+/// to restart the game. (Incomplete)
+/// 
+/// ///
+///////////////////////////////////////////////////////////////////
     @FXML
     void restartButtonPressed(ActionEvent event) {
     	
@@ -548,7 +569,7 @@ public class chessController {
     	
     }
     
-//when click on grid, get row and column of square and change that square to green
+
     
 
 //    @FXML
@@ -565,31 +586,57 @@ public class chessController {
     Board board = new Board();
     
     
-    
-    
-    @FXML
-    void startButtonClicked(ActionEvent event) {
+///////////////////////////////////////////////////////////////////
+/// eventHandler ///
+/// Input : an eventHandler///
+/// Output: None///
+/// Does stuff upon mouseclick. When a pane (square on chessboard) is clicked.
+/// the rectangle will turn green and the pane becomes selected.
+/// Upon clicking on a square after, the image (chesspiece) moves to that square.
+/// ///
+///////////////////////////////////////////////////////////////////    
 
-    	
-        
-
-    }
-    
     
     
     @FXML
     EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() { 
+    	
+///////////////////////////////////////////////////////////////////
+/// handle ///
+/// Input : a mouseEvent///
+/// Output: None///
+/// Does stuff upon mouseclick. When a pane (square on chessboard) is clicked.
+/// the rectangle will turn green and the pane becomes selected.
+/// Upon clicking on a square after, the image (chesspiece) moves to that square.
+/// ///
+///////////////////////////////////////////////////////////////////    
+    	
   	   @Override 
   	   public void handle(MouseEvent e) { 
   		   
+///////////////////////////////////////////////////////////////////
+/// handle ///
+/// Input : an mouse event  ///
+/// Output: None///
+/// When a mouse button is clicked this method handles it
+/// When a pane (square on chessboard) is clicked.
+  		/// the rectangle will turn green and the pane becomes selected.
+  		/// Upon clicking on a square after, the image (chesspiece) moves to that square.
+/// 
+/// ///
+///////////////////////////////////////////////////////////////////
+  		   //if a piece is not yet selected, upon mouseclick we want to select it and turn it green
   		   if(!board.isPieceIsSelected()) {
   			   
   			   
   			   
-  			   
+  			   //the parentNode (pane) must be found because both the square and chess piece
+  			   //are its children, so by finding the pane I can access the others
   	  	        Node sourceNode = (Node)e.getTarget();
   	  	        Pane parentPane = (Pane) sourceNode.getParent();
   	  	        System.out.println(parentPane);
+  	  	        //if the parent pane has more than one child (meaning it has a chess piece in it)
+  	  	        // then we need to remember the parent pane for the next step
   	  	        try {
 	  	  	        if(parentPane.getChildren().size() > 1){
 	  	  	        	board.setParentPane(parentPane);
@@ -603,23 +650,28 @@ public class chessController {
   	  	        
   	  	        
 
-  	  	        
+  	  	        //the index 0 of all the panes is a square on the chessboard(rectangle)
   	  	        Rectangle selectedRect =  (Rectangle) parentPane.getChildren().get(0);
+  	  	        //find the original color of the square and store it for later
   	  	        board.setOriginalRectColor((Color)selectedRect.getFill());
-  	  	        
-  	  	    selectedRect.setFill(Color.GREEN);
+  	  	        //the square will turn green if selected
+  	  	        selectedRect.setFill(Color.GREEN);
+  	  	        //a chess peice has been selected, hence we store it as a boolean
   	  	        board.setPieceIsSelected(true);
+  	  	        //we also store the rectangle
   	  	        board.setSelectedRect(selectedRect);
   	  	        
   	  	       
-  	  	        
+  	  	    //if a piece is already selected and we click on a second one, it is time to either move
+  	  	    //the chesspiece to the second selected square or deselect the previous square
   		   }else if(board.isPieceIsSelected()) {
+  			   //we give the previous square its color back
   			   board.getSelectedRect().setFill(board.getOriginalRectColor());
-  			   
+  			   //get the new clicked square info
   			   Node sourceNode = (Node)e.getTarget() ;
   			   Pane parentPane = (Pane) sourceNode.getParent();
   			   
-  			   try {
+  			   try {//if the old square has a chess piece in it then add it to the new square
 	  			   if(board.getParentPane().getChildren().size() > 1){
 	  	  			   parentPane.getChildren().add(board.getParentPane().getChildren().get(1));
 	  	  			   //board.getParentPane().getChildren().remove(1); //Don't need to remove
@@ -629,6 +681,7 @@ public class chessController {
 	  	        	System.out.println("Index Out Of Bounds: Second Piece Selected");
   			   }
   			   System.out.println(sourceNode);
+  			   //this turns to false because a piece is no longer selected.
   			   board.setPieceIsSelected(false);
  			   
  		   }
@@ -642,7 +695,13 @@ public class chessController {
   	      
   	   } 
      };
-    
+///////////////////////////////////////////////////////////////////
+/// paneClicked ///
+/// Input : event///
+/// Output: None///
+/// Upon movement of the mouse, registers the eventHandler to a mouse click on the boardpane
+/// ///
+///////////////////////////////////////////////////////////////////    
     @FXML
     void paneClicked(MouseEvent event) {
     	
